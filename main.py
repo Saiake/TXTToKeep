@@ -16,12 +16,14 @@ def getFiles(dirPath):
     return files
 
 def createKeeps(files):
+    labelName = 'Сниппеты'
+
     if not files:
         return False
     else:
-        label = keep.findLabel('Сниппеты')
+        label = keep.findLabel(labelName)
         if not label: 
-            label = keep.createLabel('Сниппеты')
+            label = keep.createLabel(labelName)
         for noteName in files:
             if not keep.find(query = noteName):
                 note = keep.createNote(noteName, files[noteName])
