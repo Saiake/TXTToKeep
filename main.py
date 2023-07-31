@@ -16,7 +16,7 @@ def getFiles(dirPath):
     return files
 
 def createKeeps(files):
-    labelName = 'Сниппеты'
+    labelName = os.getenv('LABEL')
 
     if not files:
         return False
@@ -30,7 +30,7 @@ def createKeeps(files):
                 note.labels.add(label)
 
 def main(): 
-    dirPath = 'PATH'
+    dirPath = os.getenv('PATH')
 
     files = getFiles(dirPath)
 
