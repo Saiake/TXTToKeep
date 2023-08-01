@@ -10,8 +10,10 @@ def getFiles(dirPath):
     for filePath in os.listdir(dirPath):
         fullPath = os.path.join(dirPath, filePath)
         if os.path.isfile(fullPath):
-            fileContent = open(fullPath, encoding = 'utf-8', mode = 'r')
-            files[filePath.split('.')[0]] = fileContent.read()
+            fileName = filePath.split('.')
+            if fileName[1] == 'txt':
+                fileContent = open(fullPath, encoding = 'utf-8', mode = 'r')
+                files[fileName[0]] = fileContent.read()
 
     return files
 
